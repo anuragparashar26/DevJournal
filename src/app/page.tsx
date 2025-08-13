@@ -4,6 +4,22 @@ import type { Post } from "@/lib/types";
 import Link from "next/link";
 import SubscribeForm from "@/components/SubscribeForm";
 
+function createExcerpt(markdown: string, maxLength: number = 160): string {
+  const cleaned = markdown
+    .replace(/^#{1,6}\s+/gm, '')
+    .replace(/\*\*(.+?)\*\*/g, '$1')
+    .replace(/\*(.+?)\*/g, '$1')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/!\[([^\]]*)\]\([^)]+\)/g, '')
+    .replace(/```[\s\S]*?```/g, '')
+    .replace(/`(.+?)`/g, '$1')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return cleaned.length > maxLength 
+    ? cleaned.slice(0, maxLength) + "…" 
+    : cleaned;
+}
+
 async function getPosts() {
   try {
     const client = await clientPromise;
@@ -33,21 +49,19 @@ export default async function Home() {
       <div className="space-y-6">
         {posts.length > 0 ? (
           posts.map((post) => {
-            const excerpt =
-              post.body.replace(/\s+/g, " ").trim().slice(0, 160) +
-              (post.body.length > 160 ? "…" : "");
+            const excerpt = createExcerpt(post.body, 160);
             return (
               <article
                 key={post._id.toString()}
                 className="post-card group flex gap-5 border-b border-gray-200/60 dark:border-gray-800/60 pb-6"
               >
-                {post.imageUrl && (
+                {(post.thumbnailUrl || post.imageUrl) && (
                   <Link
                     href={`/posts/${post.slug}`}
                     className="relative w-32 h-20 shrink-0 overflow-hidden rounded-md border border-gray-200 dark:border-gray-800"
                   >
                     <Image
-                      src={post.imageUrl}
+                      src={post.thumbnailUrl || post.imageUrl!}
                       alt={post.title}
                       fill
                       sizes="128px"

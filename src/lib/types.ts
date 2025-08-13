@@ -7,4 +7,5 @@ export interface Post {
   date: string;
   body: string;
   imageUrl?: string;
+  thumbnailUrl?: string;
 }
