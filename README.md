@@ -1,6 +1,6 @@
 # Personal Blog
 
-A modern, responsive personal blog built with Next.js, TypeScript, and Tailwind CSS. Features a clean design with dark/light mode toggle, email subscription functionality, and markdown support for blog posts.
+A modern, responsive personal blog built with Next.js, TypeScript, and Tailwind CSS. Features a clean design with dark/light mode toggle, email subscription functionality for blog posts.
 
 ## ✨ Features
 
@@ -26,7 +26,7 @@ A modern, responsive personal blog built with Next.js, TypeScript, and Tailwind 
 Before running this project, make sure you have:
 
 - Node.js 18.x or later
-- npm or yarn package manager
+- npm package manager
 - MongoDB database (local or cloud)
 - Cloudinary account for image hosting
 
@@ -58,10 +58,10 @@ CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
 CLOUDINARY_API_KEY=your_cloudinary_api_key
 CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 
-# Email (if using email subscriptions)
-SENDGRID_API_KEY="your_sendgrid_api"
-SENDGRID_LIST_ID="your_sendgrid_secret"
-SENDGRID_SENDER_ID="your_sendgrid_sender_id"
+# Email
+SENDGRID_API_KEY=your_sendgrid_api
+SENDGRID_LIST_ID=your_sendgrid_secret
+SENDGRID_SENDER_ID=your_sendgrid_sender_id
 ```
 
 ### 4. Run the development server
@@ -112,7 +112,7 @@ Vercel is the recommended platform for deploying this Next.js blog. Follow these
    - **Output Directory**: `.next` (default)
 
 4. **Add Environment Variables**
-   In the Vercel dashboard, go to your project settings and add all the environment variables from your `.env.local` file:
+   In the Vercel dashboard, go to your project settings and add all the environment variables from your `.env` file:
 
    ```
    MONGODB_URI
