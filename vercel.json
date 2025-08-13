@@ -7,8 +7,8 @@
   "devCommand": "npm run dev",
   "regions": ["iad1"],
   "functions": {
-    "src/app/api/**/*.ts": {
-      "runtime": "nodejs18.x"
+    "api/**/*.php": {
+      "runtime": "vercel-php@0.7.4"
     }
   },
   "env": {
