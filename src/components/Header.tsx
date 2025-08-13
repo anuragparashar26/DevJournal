@@ -20,7 +20,7 @@ export default function Header() {
             height={24}
             className="rounded-full"
           />
-          Anurag's Blog
+          Anurag&apos;s Blog
         </Link>
         <div className="flex items-center gap-2">
           <ThemeToggle />
