@@ -1,23 +1,23 @@
 @import "tailwindcss";
-/* ...existing code... */
+
 :root {
   --accent: #13aa52;
   --accent-hover: #0f8a42;
   --radius-sm: 4px;
 }
-/* Accent + minimal links */
+
 a {
   transition: color .15s ease, text-decoration-color .15s ease;
   text-decoration-color: transparent;
 }
-/* Subtle divider helper */
+
 .divider {
   height: 1px;
   background: linear-gradient(to right, transparent, var(--accent) 40%, transparent);
   opacity: .15;
   margin: 2rem 0;
 }
-/* Form + inputs */
+
 input[type=text],
 input[type=email],
 textarea {
@@ -26,11 +26,11 @@ textarea {
 label {
   @apply text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400;
 }
-/* Buttons */
+
 .button-accent {
   @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-white bg-[var(--accent)] hover:bg-[var(--accent-hover)] transition-colors disabled:opacity-50;
 }
-/* Post content */
+
 .prose {
   --tw-prose-headings: var(--foreground);
   --tw-prose-links: var(--accent);
@@ -43,7 +43,7 @@ body {
   color: var(--foreground);
   font-feature-settings: "ss01","cv01";
 }
-/* Card hover */
+
 .post-card {
   @apply transition-colors rounded-lg;
 }

@@ -28,7 +28,7 @@ export async function POST(request: Request) {
     await sendgrid.request(sgRequest);
 
     return NextResponse.json(
-      { message: "You're subscribed! Check your inbox to confirm." },
+      { message: "You're subscribed!" },
       { status: 200 }
     );
   } catch (error: any) {

@@ -14,12 +14,6 @@ export default function Header() {
           My Blog
         </Link>
         <div className="flex items-center gap-2">
-          <Link
-            href="/admin/add-post"
-            className="text-xs font-medium px-3 py-1.5 rounded-md border border-[var(--accent)] text-[var(--accent)] hover:bg-[var(--accent)] hover:text-white transition-colors"
-          >
-            New Post
-          </Link>
         </div>
       </nav>
     </header>
