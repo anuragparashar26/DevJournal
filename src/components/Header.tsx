@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import ThemeToggle from "./ThemeToggle";
+import Image from "next/image";
 
 
 export default function Header() {
@@ -9,11 +11,19 @@ export default function Header() {
       <nav className="mx-auto max-w-3xl px-4 h-14 flex items-center justify-between">
         <Link
           href="/"
-          className="font-semibold tracking-tight text-lg hover:text-[var(--accent)] hover:underline"
+          className="flex items-center gap-2 font-semibold tracking-tight text-lg hover:text-[var(--accent)] hover:underline"
         >
-          My Blog
+          <Image
+            src="https://res.cloudinary.com/dlca3ihgk/image/upload/v1755003324/blog_posts/aanfqazxqhbumsqbpsyq.png"
+            alt="My Blog Logo"
+            width={24}
+            height={24}
+            className="rounded-full"
+          />
+          Anurag's Blog
         </Link>
         <div className="flex items-center gap-2">
+          <ThemeToggle />
         </div>
       </nav>
     </header>

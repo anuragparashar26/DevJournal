@@ -94,7 +94,7 @@ export default async function Home() {
           })
         ) : (
           <p className="text-sm text-gray-500">
-            No posts yet. Use the New Post button to create one.
+            No posts yet.
           </p>
         )}
       </div>
