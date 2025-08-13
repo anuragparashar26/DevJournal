@@ -7,7 +7,7 @@
   "devCommand": "npm run dev",
   "regions": ["iad1"],
   "functions": {
-    "api/**": {
+    "src/app/api/**": {
       "runtime": "@vercel/node@4.32.0"
     }
   },
