@@ -11,6 +11,8 @@ A modern, responsive personal blog built with Next.js, TypeScript, and Tailwind 
 - **Image Support**: Cloudinary integration for image hosting
 - **SEO Optimized**: Meta tags and structured data
 - **Fast Performance**: Built with Next.js 14 and optimized for speed
+- **Comment System**: Readers can comment on posts; comments require admin approval.
+- **Upvotes**: Readers can upvote posts (one upvote per user/IP).
 
 ## 🛠️ Tech Stack
 
@@ -29,6 +31,10 @@ Before running this project, make sure you have:
 - npm package manager
 - MongoDB database (local or cloud)
 - Cloudinary account for image hosting
+
+## 🔒 Privacy: IP Salting
+
+For features like upvotes and comment rate-limiting, this blog does not store raw IP addresses. Instead, IPs are hashed with a secret salt before being saved to the database. This ensures user privacy while still allowing basic anti-abuse protections (such as one upvote per user/IP and comment rate-limiting). The salt is never exposed or stored in the database.
 
 ## 🚀 Getting Started
 
