@@ -54,7 +54,7 @@ label {
   --tw-prose-pre-bg: theme(colors.gray.100);
   --tw-prose-th-borders: theme(colors.gray.300);
   --tw-prose-td-borders: theme(colors.gray.200);
-  max-width: 68ch;
+  max-width: 90ch;
 }
 
 .dark .prose {
@@ -93,7 +93,7 @@ body {
 }
 
 .post-card {
-  @apply transition-colors rounded-lg;
+  @apply transition-colors rounded-lg p-4;
 }
 .post-card:hover {
   background: color-mix(in oklab, var(--foreground) 4%, transparent);
@@ -103,4 +103,37 @@ body {
 }
 .post-card:hover {
   background: color-mix(in oklab, var(--foreground) 4%, transparent);
+}
+
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+.prose,
+.post-card,
+.max-w-none {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  box-sizing: border-box;
+}
+
+img, .prose img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  body {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .prose,
+  .post-card,
+  .max-w-none {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 }

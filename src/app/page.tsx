@@ -44,7 +44,7 @@ export default async function Home() {
   const posts = await getPosts();
 
   return (
-    <div>
+    <div className="w-full max-w-none overflow-x-hidden">
       <SubscribeForm />
       <div className="divider"></div>
       <h1 className="text-3xl font-semibold mb-6">Latest</h1>
@@ -53,45 +53,46 @@ export default async function Home() {
           posts.map((post) => {
             const excerpt = createExcerpt(post.body, 160);
             return (
-              <article
+              <Link
                 key={post._id.toString()}
-                className="post-card group flex gap-5 border-b border-gray-200/60 dark:border-gray-800/60 pb-6"
+                href={`/posts/${post.slug}`}
+                className="block focus:outline-none"
+                tabIndex={0}
+                aria-label={`Read blog post: ${post.title}`}
               >
-                {(post.thumbnailUrl || post.imageUrl) && (
-                  <Link
-                    href={`/posts/${post.slug}`}
-                    className="relative w-32 h-20 shrink-0 overflow-hidden rounded-md border border-gray-200 dark:border-gray-800"
-                  >
-                    <Image
-                      src={post.thumbnailUrl || post.imageUrl!}
-                      alt={post.title}
-                      fill
-                      sizes="128px"
-                      className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                    />
-                  </Link>
-                )}
-                <div className="flex-1 min-w-0">
-                  <h2 className="text-lg font-semibold leading-snug mb-1">
-                    <Link
-                      href={`/posts/${post.slug}`}
-                      className="hover:text-[var(--accent)] hover:underline"
+                <article
+                  className="post-card group flex flex-col sm:flex-row gap-5 border-b border-gray-200/60 dark:border-gray-800/60 pb-6 cursor-pointer hover:shadow-md transition-shadow"
+                >
+                  {(post.thumbnailUrl || post.imageUrl) && (
+                    <div
+                      className="relative w-full sm:w-32 h-48 sm:h-20 shrink-0 overflow-hidden rounded-md border border-gray-200 dark:border-gray-800"
                     >
+                      <Image
+                        src={post.thumbnailUrl || post.imageUrl!}
+                        alt={post.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 128px"
+                        className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                      />
+                    </div>
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <h2 className="text-lg font-semibold leading-snug mb-1">
                       {post.title}
-                    </Link>
-                  </h2>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
-                    {new Date(post.date).toLocaleDateString(undefined, {
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric",
-                    })}
-                  </p>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-3">
-                    {excerpt}
-                  </p>
-                </div>
-              </article>
+                    </h2>
+                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                      {new Date(post.date).toLocaleDateString(undefined, {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-3">
+                      {excerpt}
+                    </p>
+                  </div>
+                </article>
+              </Link>
             );
           })
         ) : (

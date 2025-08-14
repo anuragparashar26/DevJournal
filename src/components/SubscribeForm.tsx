@@ -41,7 +41,7 @@ export default function SubscribeForm() {
     <div className="subscribe-box">
       <h2 className="text-lg font-semibold mb-2">Subscribe for Updates</h2>
       <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-        Get the latest posts delivered right to your inbox. No spam, ever.
+        Get the latest blogs delivered right to your inbox. No spam, ever.
       </p>
       <form onSubmit={handleSubmit} className="flex items-start gap-2">
         <div className="flex-1">

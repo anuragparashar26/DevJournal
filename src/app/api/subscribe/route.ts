@@ -14,6 +14,21 @@ export async function POST(request: Request) {
       );
     }
 
+    const searchRequest = {
+      url: `/v3/marketing/contacts/search`,
+      method: "POST" as const,
+      body: {
+        query: `email LIKE '${email}'`,
+      },
+    };
+    const [searchRes, searchBody] = await sendgrid.request(searchRequest);
+    if (searchBody.result && searchBody.result.length > 0) {
+      return NextResponse.json(
+        { message: "You are already subscribed." },
+        { status: 200 }
+      );
+    }
+
     const data = {
       contacts: [{ email }],
       list_ids: [process.env.SENDGRID_LIST_ID!],
@@ -28,7 +43,7 @@ export async function POST(request: Request) {
     await sendgrid.request(sgRequest);
 
     return NextResponse.json(
-      { message: "You're subscribed!" },
+      { message: "You have been subscribed!" },
       { status: 200 }
     );
   } catch (error: any) {

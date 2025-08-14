@@ -9,3 +9,29 @@ export interface Post {
   imageUrl?: string;
   thumbnailUrl?: string;
 }
+
+export interface Comment {
+  _id?: ObjectId;
+  postSlug: string;
+  author: string;
+  email: string;
+  content: string;
+  timestamp: Date;
+  approved: boolean;
+  ipHash: string;
+}
+
+export interface Upvote {
+  _id?: ObjectId;
+  postSlug: string;
+  ipHash: string;
+  timestamp: Date;
+}
+
+export interface RateLimit {
+  _id?: ObjectId;
+  ipHash: string;
+  action: 'comment' | 'upvote';
+  timestamp: Date;
+  count: number;
+}

@@ -3,6 +3,7 @@ import type { Post } from "@/lib/types";
 import { notFound } from "next/navigation";
 import { ObjectId } from "mongodb";
 import Image from "next/image";
+import CommentsAndUpvotes from "@/components/CommentsAndUpvotes";
 
 async function getPost(slug: string) {
   try {
@@ -18,15 +19,15 @@ async function getPost(slug: string) {
 
 function renderMarkdown(text: string) {
   return text
-    .replace(/^### (.+$)/gm, '<h3 class="text-lg font-semibold mt-6 mb-3">$1</h3>')
-    .replace(/^## (.+$)/gm, '<h2 class="text-xl font-semibold mt-8 mb-4">$1</h2>')
-    .replace(/^# (.+$)/gm, '<h1 class="text-2xl font-bold mt-8 mb-4">$1</h1>')
+    .replace(/^### (.+$)/gm, '<h3 class="text-lg font-semibold mt-6 mb-3 break-words">$1</h3>')
+    .replace(/^## (.+$)/gm, '<h2 class="text-xl font-semibold mt-8 mb-4 break-words">$1</h2>')
+    .replace(/^# (.+$)/gm, '<h1 class="text-2xl font-bold mt-8 mb-4 break-words">$1</h1>')
     .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="max-w-full h-auto rounded-lg border border-gray-200 dark:border-gray-800 my-6" />')
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-blue-600 dark:text-blue-400 hover:underline">$1</a>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-blue-600 dark:text-blue-400 hover:underline break-words">$1</a>')
     .replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold">$1</strong>')
     .replace(/\*(.+?)\*/g, '<em class="italic">$1</em>')
-    .replace(/`(.+?)`/g, '<code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm font-mono">$1</code>')
-    .replace(/\n\n/g, '</p><p class="mb-4">')
+    .replace(/`(.+?)`/g, '<code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm font-mono break-all">$1</code>')
+    .replace(/\n\n/g, '</p><p class="mb-4 break-words">')
     .replace(/\n/g, '<br>');
 }
 
@@ -45,8 +46,8 @@ export default async function PostPage({
   }
 
   return (
-    <div className="py-8">
-      <article className="prose dark:prose-invert mx-auto">
+    <div className="w-full max-w-screen-lg mx-auto px-2 sm:px-4 md:px-8 overflow-x-hidden">
+      <article className="prose prose-gray dark:prose-invert max-w-none w-full">
         <h1 className="mb-3">{post.title}</h1>
         <div className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-6">
           {new Date(post.date).toLocaleDateString(undefined, {
@@ -68,12 +69,17 @@ export default async function PostPage({
           </div>
         )}
         <div 
-          className="leading-relaxed prose dark:prose-invert max-w-none"
+          className="leading-relaxed prose-lg max-w-none break-words overflow-x-auto"
           dangerouslySetInnerHTML={{ 
             __html: `<p class="mb-4">${renderMarkdown(post.body)}</p>` 
           }}
         />
       </article>
+      
+      {/* Comments and Upvotes Section */}
+      <div className="w-full max-w-none">
+        <CommentsAndUpvotes postSlug={post.slug} />
+      </div>
     </div>
   );
 }
