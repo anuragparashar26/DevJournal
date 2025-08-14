@@ -130,15 +130,14 @@ export default function CommentsAndUpvotes({ postSlug }: CommentsAndUpvotesProps
         <button
           onClick={handleUpvote}
           disabled={hasUpvoted}
-          className={`text-sm px-3 py-1 rounded ${
+          className={`text-sm px-3 py-1 rounded font-medium border border-[var(--accent)] transition-colors ${
             hasUpvoted
-              ? 'bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)]'
-              : 'bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)]'
+              ? 'bg-[var(--accent)] text-white hover:bg-[var(--accent-hover)] cursor-default'
+              : 'bg-transparent text-[var(--accent)] hover:bg-[var(--accent)] hover:text-white'
           }`}
         >
-          🢁 {upvoteCount}
+          {hasUpvoted ? `▲ Upvoted ${upvoteCount}` : `▲ Upvote ${upvoteCount}`}
         </button>
-        {hasUpvoted && <span className="text-sm text-gray-500">Thank you for your upvote!</span>}
       </div>
 
       {/* Message */}
