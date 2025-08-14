@@ -7,11 +7,17 @@ const Footer = () => {
         <p>
           Designed and built by Anurag Parashar.
         </p>
-        <p className="mt-2">
+        <div className="mt-2 flex justify-center gap-4">
           <Link href="https://github.com/anuragparashar26" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-gray-100">
             Github
           </Link>
-        </p>
+          <Link href="https://anuragparashar.tech" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-gray-100">
+            Portfolio
+          </Link>
+          <Link href="https://www.linkedin.com/in/anuragparashar26/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-gray-100">
+            LinkedIn
+          </Link>
+        </div>
         <p className="mt-4 text-sm">
           © {new Date().getFullYear()} All rights reserved.
         </p>
