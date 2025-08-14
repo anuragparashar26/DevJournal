@@ -1,9 +1,27 @@
 "use client";
 
 import { useTheme } from '@/contexts/ThemeContext';
+import { useEffect, useState } from 'react';
 
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <button
+        className="p-2 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-[var(--accent)] dark:hover:text-gray-100 transition-colors"
+        aria-label="Toggle theme"
+        suppressHydrationWarning
+      >
+        <div className="w-5 h-5" /> {/* Placeholder to maintain layout */}
+      </button>
+    );
+  }
 
   return (
     <button
