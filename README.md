@@ -20,6 +20,7 @@ A modern, responsive personal blog built with Next.js, TypeScript, and Tailwind 
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Database**: MongoDB
+- **Email Service**: SendGrid
 - **Image Hosting**: Cloudinary
 - **Deployment**: Vercel
 
@@ -31,6 +32,7 @@ Before running this project, make sure you have:
 - npm package manager
 - MongoDB database (local or cloud)
 - Cloudinary account for image hosting
+- SendGrid account for newsletters
 
 ## 🔒 Privacy: IP Salting
 
@@ -87,7 +89,7 @@ To manage your blog content, you'll need to set up the admin panel separately. T
 - Preview posts before publishing
 - Manage post metadata (title, slug, etc.)
 
-Note: Admin repository is currently private.
+Note: The repository for Admin Panel of this blog is currently set to private.
 
 ## 🌐 Deploying to Vercel
 
