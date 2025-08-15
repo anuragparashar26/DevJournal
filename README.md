@@ -88,6 +88,7 @@ To manage your blog content, you'll need to set up the admin panel separately. T
 - Upload and manage images
 - Preview posts before publishing
 - Manage post metadata (title, slug, etc.)
+- Save as Drafts
 
 Note: The repository for Admin Panel of this blog is currently set to private.
 
