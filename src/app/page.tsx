@@ -20,6 +20,19 @@ function createExcerpt(markdown: string, maxLength: number = 160): string {
     : cleaned;
 }
 
+function estimateReadingTime(markdown: string): number {
+  const text = markdown
+    .replace(/```[\s\S]*?```/g, '')
+    .replace(/`(.+?)`/g, '')
+    .replace(/!\[([^\]]*)\]\([^)]+\)/g, '')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/[#>*_~`-]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const words = text.split(' ').filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
+}
+
 async function getPosts() {
   try {
     const client = await clientPromise;
@@ -52,6 +65,7 @@ export default async function Home() {
         {posts.length > 0 ? (
           posts.map((post) => {
             const excerpt = createExcerpt(post.body, 160);
+            const minutesRead = estimateReadingTime(post.body);
             return (
               <Link
                 key={post._id.toString()}
@@ -80,13 +94,17 @@ export default async function Home() {
                     <h2 className="text-lg font-semibold leading-snug mb-1">
                       {post.title}
                     </h2>
-                    <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
-                      {new Date(post.date).toLocaleDateString(undefined, {
-                        month: "short",
-                        day: "numeric",
-                        year: "numeric",
-                      })}
-                    </p>
+                    <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 mb-2">
+                      <span>
+                        {new Date(post.date).toLocaleDateString(undefined, {
+                          month: "short",
+                          day: "numeric",
+                          year: "numeric",
+                        })}
+                      </span>
+                      <span aria-hidden="true">•</span>
+                      <span>{minutesRead} min read</span>
+                    </div>
                     <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-3">
                       {excerpt}
                     </p>

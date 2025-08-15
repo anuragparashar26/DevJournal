@@ -31,6 +31,19 @@ function renderMarkdown(text: string) {
     .replace(/\n/g, '<br>');
 }
 
+function estimateReadingTime(markdown: string): number {
+  const text = markdown
+    .replace(/```[\s\S]*?```/g, '')
+    .replace(/`(.+?)`/g, '')
+    .replace(/!\[([^\]]*)\]\([^)]+\)/g, '')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/[#>*_~`-]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const words = text.split(' ').filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
+}
+
 export const revalidate = 60;
 
 export default async function PostPage({
@@ -45,16 +58,22 @@ export default async function PostPage({
     notFound();
   }
 
+  const minutesRead = estimateReadingTime(post.body);
+
   return (
     <div className="w-full max-w-screen-lg mx-auto px-2 sm:px-4 md:px-8 overflow-x-hidden">
       <article className="prose prose-gray dark:prose-invert max-w-none w-full">
         <h1 className="mb-3">{post.title}</h1>
-        <div className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-6">
-          {new Date(post.date).toLocaleDateString(undefined, {
-            month: "short",
-            day: "numeric",
-            year: "numeric",
-          })}
+        <div className="flex items-center gap-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-6">
+          <span>
+            {new Date(post.date).toLocaleDateString(undefined, {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            })}
+          </span>
+          <span aria-hidden="true">•</span>
+          <span>{minutesRead} min read</span>
         </div>
         {(post.thumbnailUrl || post.imageUrl) && (
           <div className="mb-8 overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800">
