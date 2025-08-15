@@ -40,7 +40,7 @@ async function getPosts() {
 
     const posts = await db
       .collection<Post>("posts") 
-      .find({})
+      .find({ status: "published" })
       .sort({ date: -1 })
       .toArray();
 

@@ -9,7 +9,7 @@ async function getPost(slug: string) {
   try {
     const client = await clientPromise;
     const db = client.db("blog");
-    const post = await db.collection<Post>("posts").findOne({ slug });
+  const post = await db.collection<Post>("posts").findOne({ slug, status: "published" });
     return post;
   } catch (e) {
     console.error(e);
@@ -107,7 +107,7 @@ export default async function PostPage({
 export async function generateStaticParams() {
   const client = await clientPromise;
   const db = client.db("blog");
-  const posts = await db.collection<Post>("posts").find({}).toArray();
+  const posts = await db.collection<Post>("posts").find({ status: "published" }).toArray();
 
   return posts.map((post) => ({
     slug: post.slug,
