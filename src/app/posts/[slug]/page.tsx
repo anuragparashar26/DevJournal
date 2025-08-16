@@ -31,6 +31,7 @@ function renderMarkdown(text: string) {
     .replace(/\n/g, '<br>');
 }
 
+
 function estimateReadingTime(markdown: string): number {
   const text = markdown
     .replace(/```[\s\S]*?```/g, '')
