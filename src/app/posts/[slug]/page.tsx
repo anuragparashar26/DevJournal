@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ObjectId } from "mongodb";
 import Image from "next/image";
 import CommentsAndUpvotes from "@/components/CommentsAndUpvotes";
+import MarkdownRenderer from "@/components/MarkdownRenderer";
 
 async function getPost(slug: string) {
   try {
@@ -16,21 +17,6 @@ async function getPost(slug: string) {
     return null;
   }
 }
-
-function renderMarkdown(text: string) {
-  return text
-    .replace(/^### (.+$)/gm, '<h3 class="text-lg font-semibold mt-6 mb-3 break-words">$1</h3>')
-    .replace(/^## (.+$)/gm, '<h2 class="text-xl font-semibold mt-8 mb-4 break-words">$1</h2>')
-    .replace(/^# (.+$)/gm, '<h1 class="text-2xl font-bold mt-8 mb-4 break-words">$1</h1>')
-    .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" class="max-w-full h-auto rounded-lg border border-gray-200 dark:border-gray-800 my-6" />')
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-blue-600 dark:text-blue-400 hover:underline break-words">$1</a>')
-    .replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold">$1</strong>')
-    .replace(/\*(.+?)\*/g, '<em class="italic">$1</em>')
-    .replace(/`(.+?)`/g, '<code class="bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm font-mono break-all">$1</code>')
-    .replace(/\n\n/g, '</p><p class="mb-4 break-words">')
-    .replace(/\n/g, '<br>');
-}
-
 
 function estimateReadingTime(markdown: string): number {
   const text = markdown
@@ -88,12 +74,7 @@ export default async function PostPage({
             />
           </div>
         )}
-        <div 
-          className="leading-relaxed prose-lg max-w-none break-words overflow-x-auto"
-          dangerouslySetInnerHTML={{ 
-            __html: `<p class="mb-4">${renderMarkdown(post.body)}</p>` 
-          }}
-        />
+  <MarkdownRenderer content={post.body} className="leading-relaxed prose-lg max-w-none break-words overflow-x-auto" />
       </article>
       
       {/* Comments and Upvotes Section */}
