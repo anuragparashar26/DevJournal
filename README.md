@@ -90,7 +90,7 @@ To manage your blog content, you'll need to set up the admin panel separately. T
 - Manage post metadata (title, slug, etc.)
 - Save as Drafts
 
-Note: The repository for Admin Panel of this blog is currently set to private.
+> **Note:** The admin panel for managing blog content is a private repository. If you need access or help with content management, please contact the project owner. Get Information about Admin Panel [here](assets/ADMIN_PANEL_README.md).
 
 ## 🌐 Deploying to Vercel
 
