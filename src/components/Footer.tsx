@@ -8,13 +8,28 @@ const Footer = () => {
           Designed and built by Anurag Parashar.
         </p>
         <div className="mt-2 flex justify-center gap-4">
-          <Link href="https://github.com/anuragparashar26" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-gray-100">
+          <Link
+            href="https://github.com/anuragparashar26"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[var(--accent)] focus:text-[var(--accent)] transition-colors"
+          >
             Github
           </Link>
-          <Link href="https://anuragparashar.tech" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-gray-100">
+          <Link
+            href="https://anuragparashar.tech"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[var(--accent)] focus:text-[var(--accent)] transition-colors"
+          >
             Portfolio
           </Link>
-          <Link href="https://www.linkedin.com/in/anuragparashar26/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 dark:hover:text-gray-100">
+          <Link
+            href="https://www.linkedin.com/in/anuragparashar26/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[var(--accent)] focus:text-[var(--accent)] transition-colors"
+          >
             LinkedIn
           </Link>
         </div>

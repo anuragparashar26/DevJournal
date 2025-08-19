@@ -149,6 +149,9 @@ export default function CommentsAndUpvotes({ postSlug }: CommentsAndUpvotesProps
 
       {/* Comments Section */}
       <div className="w-full overflow-x-auto">
+        <div className="mb-2 text-xs text-gray-500 dark:text-gray-400 text-center">
+          <span>Upvoting and commenting are <span className="font-semibold text-[var(--accent)]">anonymous</span>.</span>
+        </div>
         <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
           <h3 className="font-medium">Comments ({comments.length})</h3>
           {!showCommentForm && (

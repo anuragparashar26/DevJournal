@@ -156,3 +156,15 @@ br + br {
   content: " ";
   min-height: 1em;
 }
+
+.blog-progress-circle {
+  pointer-events: none;
+  transition: background 0.2s;
+  background: var(--background, #fff);
+}
+.dark .blog-progress-circle {
+  background: var(--background, #0a0a0a);
+}
+.blog-progress-circle svg text {
+  font-family: inherit;
+}

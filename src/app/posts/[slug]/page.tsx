@@ -5,6 +5,7 @@ import { ObjectId } from "mongodb";
 import Image from "next/image";
 import CommentsAndUpvotes from "@/components/CommentsAndUpvotes";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
+import BlogPostProgressCircle from "@/components/BlogPostProgressCircle";
 
 async function getPost(slug: string) {
   try {
@@ -81,6 +82,7 @@ export default async function PostPage({
       <div className="w-full max-w-none">
         <CommentsAndUpvotes postSlug={post.slug} />
       </div>
+      <BlogPostProgressCircle />
     </div>
   );
 }
