@@ -4,6 +4,8 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import remarkMath from "remark-math";
+import remarkBreaksSafeMath from "../lib/remarkBreaksSafeMath";
+import rehypeRaw from "rehype-raw";
 import rehypeKatex from "rehype-katex";
 import rehypeHighlight from "rehype-highlight";
 import "katex/dist/katex.min.css";
@@ -18,8 +20,12 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, className 
   return (
     <div className={className}>
       <ReactMarkdown
-        remarkPlugins={[remarkGfm, remarkMath]}
-        rehypePlugins={[rehypeKatex, rehypeHighlight]}
+        remarkPlugins={[remarkGfm, remarkMath, remarkBreaksSafeMath]}
+        rehypePlugins={[
+          rehypeRaw, 
+          rehypeKatex,
+          rehypeHighlight
+        ]}
         components={{
           h1: ({node, ...props}) => <h1 className="text-2xl font-bold mt-4 mb-2" {...props} />,
           h2: ({node, ...props}) => <h2 className="text-xl font-semibold mt-4 mb-2" {...props} />,
