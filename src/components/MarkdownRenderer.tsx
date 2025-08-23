@@ -46,6 +46,12 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, className 
               <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded text-sm" {...rest}>{children}</code>
             );
           },
+          a: ({node, ...props}) => (
+            <a
+              className="text-blue-400 hover:underline visited:text-blue-600"
+              {...props}
+            />
+          ),
         }}
       >
         {content}

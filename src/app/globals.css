@@ -59,6 +59,18 @@ label {
   text-align: justify;
 }
 
+.prose a {
+  color: #60a5fa;
+}
+
+.prose a:visited {
+  color: #2563eb;
+}
+
+.prose a:hover {
+  text-decoration: underline;
+}
+
 .dark .prose {
   --tw-prose-body: var(--foreground);
   --tw-prose-headings: var(--foreground);
