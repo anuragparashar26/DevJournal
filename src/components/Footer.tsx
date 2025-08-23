@@ -35,6 +35,13 @@ const Footer = () => {
         </div>
         <p className="mt-4 text-sm">
           © {new Date().getFullYear()} All rights reserved.
+          {' '}
+          <Link
+            href="/privacy-policy"
+            className="hover:text-[var(--accent)] focus:text-[var(--accent)] transition-colors underline ml-1"
+          >
+            Privacy Policy.
+          </Link>
         </p>
       </div>
     </footer>
