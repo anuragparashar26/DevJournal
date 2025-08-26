@@ -2,6 +2,12 @@
 
 **DevJournal** is a modern, open-source blog template built with Next.js, TypeScript, and Tailwind CSS. Designed for developers and writers, it features a clean, responsive design, dark/light mode, markdown support, email subscriptions, comments, and upvotes. Easily deployable and customizable for your own personal or developer blog.
 
+## Live Demo: [Click Here (Author's Blog)](https://blog.anuragparashar.tech)
+
+<div align="center">
+  <img src="/assets/demo.gif" alt="DevJournal" width="100%"/>
+</div>
+
 ---
 
 ## ✨ Features
