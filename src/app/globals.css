@@ -180,3 +180,155 @@ br + br {
 .blog-progress-circle svg text {
   font-family: inherit;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.prose pre,
+pre {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  white-space: pre !important;
+  word-wrap: normal !important;
+  overflow-wrap: normal !important;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box !important;
+  margin: 1.5rem 0 !important;
+  padding: 0.5rem !important;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 155, 155, 0.5) transparent;
+}
+
+.prose pre::-webkit-scrollbar,
+pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.prose pre::-webkit-scrollbar-track,
+pre::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.prose pre::-webkit-scrollbar-thumb,
+pre::-webkit-scrollbar-thumb {
+  background: rgba(155, 155, 155, 0.5);
+  border-radius: 4px;
+}
+
+.prose pre::-webkit-scrollbar-thumb:hover,
+pre::-webkit-scrollbar-thumb:hover {
+  background: rgba(155, 155, 155, 0.7);
+}
+
+.prose pre code,
+pre code {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  white-space: pre !important;
+  word-wrap: normal !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  padding: 0 !important;
+  background: transparent !important;
+  font-size: inherit !important;
+}
+
+.prose code:not(pre code),
+code:not(pre code) {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+article {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-wrap: break-word;
+}
+
+.prose {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  width: 100%;
+  max-width: 100%;
+}
+
+.prose > * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .prose pre,
+  pre {
+    font-size: 0.75rem !important;
+    line-height: 1.5 !important;
+    margin: 1rem 0 !important;
+    padding: 0.4rem !important;
+  }
+}
+
+.prose pre code,
+pre code,
+.prose pre code *,
+pre code * {
+  color: #e5e7eb !important;
+  background: transparent !important;
+}
+
+.prose pre,
+pre {
+  background: #1f2937 !important;
+}
+
+.dark .prose pre code,
+.dark pre code,
+.dark .prose pre code *,
+.dark pre code *,
+:not(.dark) .prose pre code,
+:not(.dark) pre code,
+:not(.dark) .prose pre code *,
+:not(.dark) pre code * {
+  color: #e5e7eb !important;
+  background: transparent !important;
+}
+
+.dark .prose pre,
+.dark pre,
+:not(.dark) .prose pre,
+:not(.dark) pre {
+  background: #1f2937 !important;
+}
+
+.hljs,
+.hljs-keyword,
+.hljs-string,
+.hljs-title,
+.hljs-comment,
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-attr,
+.hljs-built_in,
+.hljs-meta,
+.hljs-selector-tag,
+.hljs-type,
+.hljs-doctag,
+.hljs-section,
+.hljs-selector-id,
+.hljs-subst,
+.hljs-quote {
+  color: inherit !important;
+  background: transparent !important;
+}

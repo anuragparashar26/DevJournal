@@ -49,8 +49,8 @@ export default async function PostPage({
   const minutesRead = estimateReadingTime(post.body);
 
   return (
-    <div className="w-full max-w-screen-lg mx-auto px-2 sm:px-4 md:px-8 overflow-x-hidden">
-      <article className="prose prose-gray dark:prose-invert max-w-none w-full">
+    <div className="w-full overflow-x-hidden">
+      <article className="prose prose-gray dark:prose-invert w-full">
         <h1 className="mb-3">{post.title}</h1>
         <div className="flex items-center gap-3 text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-6">
           <span>
@@ -75,7 +75,7 @@ export default async function PostPage({
             />
           </div>
         )}
-  <MarkdownRenderer content={post.body} className="leading-relaxed prose-lg max-w-none break-words overflow-x-auto" />
+  <MarkdownRenderer content={post.body} className="leading-relaxed prose-lg max-w-none" />
       </article>
       
       {/* Comments and Upvotes Section */}

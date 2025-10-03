@@ -18,7 +18,7 @@ interface MarkdownRendererProps {
 
 const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, className }) => {
   return (
-    <div className={className}>
+    <div className={`${className} max-w-full min-w-0`}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm, remarkMath, remarkBreaksSafeMath]}
         rehypePlugins={[
@@ -39,7 +39,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, className 
           code(props: any) {
             const {inline, className: codeClassName, children, ...rest} = props;
             return !inline ? (
-              <pre className="bg-gray-100 dark:bg-gray-800 rounded p-3 overflow-x-auto my-4">
+              <pre className="bg-gray-100 dark:bg-gray-800 rounded">
                 <code className={codeClassName} {...rest}>{children}</code>
               </pre>
             ) : (

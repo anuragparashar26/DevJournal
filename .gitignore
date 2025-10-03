@@ -41,3 +41,6 @@ yarn-error.log*
 next-env.d.ts
 
 /admin
+
+assets/demo.mp4
+assets/logo.png
