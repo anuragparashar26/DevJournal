@@ -39,7 +39,7 @@ export default function SubscribeForm() {
 
   return (
     <div className="subscribe-box">
-      <h2 className="text-lg font-semibold mb-2">Subscribe for Updates</h2>
+      <h2 className="text-lg font-semibold mb-2">Subscribe for Updates (not working, fixing rn)</h2>
       <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
         Get the latest blogs delivered right to your inbox. No spam, ever.
       </p>
