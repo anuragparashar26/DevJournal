@@ -35,3 +35,10 @@ export interface RateLimit {
   timestamp: Date;
   count: number;
 }
+
+export interface Subscriber {
+  _id?: ObjectId;
+  email: string;
+  subscribedAt: Date;
+  active: boolean;
+}

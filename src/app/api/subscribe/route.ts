@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import FormData from "form-data";
 import Mailgun from "mailgun.js";
+import clientPromise from "@/lib/mongodb";
+import { Subscriber } from "@/lib/types";
 
 const mailgun = new Mailgun(FormData);
 const mg = mailgun.client({
@@ -38,6 +40,25 @@ export async function POST(request: Request) {
       address: email,
       subscribed: true,
     });
+
+    try {
+      const client = await clientPromise;
+      const db = client.db("blog");
+      const subscribersCollection = db.collection<Subscriber>("subscribers");
+
+      const existingSubscriber = await subscribersCollection.findOne({ email });
+      
+      if (!existingSubscriber) {
+        const subscriber: Subscriber = {
+          email,
+          subscribedAt: new Date(),
+          active: true,
+        };
+        await subscribersCollection.insertOne(subscriber);
+      }
+    } catch (mongoError: any) {
+      console.error("MongoDB Error:", mongoError.message || mongoError);
+    }
 
     return NextResponse.json(
       { message: "You have been subscribed!" },
