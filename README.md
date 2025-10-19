@@ -17,7 +17,7 @@
 - **Markdown Blogging**: Write posts in markdown with code highlighting
 - **Image Uploads**: Cloudinary integration for fast image hosting
 - **SEO Optimized**: Meta tags and structured data for better discoverability
-- **Email Subscriptions**: Newsletter signup with SendGrid
+- **Email Subscriptions**: Newsletter signup with Mailgun
 - **Comments & Upvotes**: Readers can comment (with moderation) and upvote posts
 - **Privacy-first**: IPs are salted and hashed for anti-abuse, never stored in raw form
 - **Easy Deployment**: Deploy to Vercel in minutes
@@ -61,16 +61,16 @@ CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
 CLOUDINARY_API_KEY=your_cloudinary_api_key
 CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 
-# Email (SendGrid)
-SENDGRID_API_KEY=your_sendgrid_api
-SENDGRID_LIST_ID=your_sendgrid_list_id
-SENDGRID_SENDER_ID=your_sendgrid_sender_id
+# Email
+MAILGUN_API_KEY=your_mailgun_api_key
+MAILGUN_DOMAIN=your_mailgun_domain
+MAILGUN_MAILING_LIST=your_mailgun_mailing_list_address
 
 # Security
 IP_SALT=your_random_secret_salt
 ```
 
-> **Tip:** You can get free accounts for [MongoDB Atlas](https://www.mongodb.com/atlas), [Cloudinary](https://cloudinary.com/), and [SendGrid](https://sendgrid.com/).
+> **Tip:** You can get free accounts for [MongoDB Atlas](https://www.mongodb.com/atlas), [Cloudinary](https://cloudinary.com/), and [Mailgun](https://www.mailgun.com/).
 
 ### 4. Run Locally
 
