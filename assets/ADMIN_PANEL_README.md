@@ -57,6 +57,7 @@ A modern admin dashboard for managing your Personal Blog, built with Next.js, Ty
    MAILGUN_API_KEY=your_mailgun_api_key
    MAILGUN_DOMAIN=your_mailgun_domain
    MAILGUN_MAILING_LIST=your_mailgun_mailing_list_address
+   MAILGUN_FROM_NAME="your_name"
    MAILGUN_FROM_EMAIL=your_sender_email@example.com
    NEXT_PUBLIC_BASE_URL=your-admin-panel.vercel.app
    IP_SALT=your_ip_salt_here
