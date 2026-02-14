@@ -6,6 +6,8 @@ import Image from "next/image";
 import CommentsAndUpvotes from "@/components/CommentsAndUpvotes";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import BlogPostProgressCircle from "@/components/BlogPostProgressCircle";
+import AskAIButton from "@/components/AskAIButton";
+import AskAIBubble from "@/components/AskAIBubble";
 
 async function getPost(slug: string) {
   try {
@@ -78,11 +80,25 @@ export default async function PostPage({
   <MarkdownRenderer content={post.body} className="leading-relaxed prose-lg max-w-none" />
       </article>
       
+      {/* Ask AI Button */}
+      <AskAIButton 
+        postTitle={post.title} 
+        postBody={post.body} 
+        postSlug={post.slug} 
+      />
+      
       {/* Comments and Upvotes Section */}
       <div className="w-full max-w-none">
         <CommentsAndUpvotes postSlug={post.slug} />
       </div>
       <BlogPostProgressCircle />
+      
+      {/* Ask AI Bubble */}
+      <AskAIBubble 
+        postTitle={post.title} 
+        postBody={post.body} 
+        postSlug={post.slug} 
+      />
     </div>
   );
 }

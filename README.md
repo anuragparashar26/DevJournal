@@ -19,6 +19,7 @@
 - **SEO Optimized**: Meta tags and structured data for better discoverability
 - **Email Subscriptions**: Newsletter signup with Mailgun
 - **Comments & Upvotes**: Readers can comment (with moderation) and upvote posts
+- **AI Chat Integration**: "Ask AI" button lets readers chat about articles with AI
 - **Privacy-first**: IPs are salted and hashed for anti-abuse, never stored in raw form
 - **Easy Deployment**: Deploy to Vercel in minutes
 
