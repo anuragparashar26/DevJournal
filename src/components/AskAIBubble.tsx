@@ -97,6 +97,16 @@ export default function AskAIBubble({ postTitle, postBody, postSlug }: AskAIBubb
           justify-content: center;
           pointer-events: auto;
         }
+        .ask-ai-popup {
+          background: var(--background, #fff);
+          color: var(#fff, #000000);
+          border: 1px solid var(--accent-color-strong, #000000);
+        }
+        .dark .ask-ai-popup {
+          background: var(--background, #0a0a0a);
+          color: var(--foreground, #ededed);
+          border: 1px solid var(--accent-color-strong, #ededed);
+        }
         @media (max-width: 768px) {
           .ask-ai-bubble {
             left: 2rem;
@@ -120,15 +130,12 @@ export default function AskAIBubble({ postTitle, postBody, postSlug }: AskAIBubb
       {/* Toolkit popup absolutely positioned above bubble */}
       {(showToolkit || isLoading) && (
         <div
-          className="ask-ai-popup"
+          className={`ask-ai-popup${typeof window !== 'undefined' && document.documentElement.classList.contains('dark') ? ' dark' : ''}`}
           style={{
             position: 'absolute',
             right: 66,
             top: '50%',
             transform: 'translateY(-50%)',
-            background: 'var(--background, #fff)',
-            color: 'var(--accent-color, #111111)',
-            border: '1px solid var(--accent-color-strong, #000000)',
             borderRadius: 8,
             boxShadow: '0 2px 8px rgba(0,0,0,0.10)',
             padding: '8px 16px',
