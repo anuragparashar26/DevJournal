@@ -6,11 +6,15 @@
   --radius-sm: 4px;
   --background: #ffffff;
   --foreground: #0a0a0a;
+  --accent-color: #111111;
+  --accent-color-strong: #000000;
 }
 
 .dark {
   --background: #0a0a0a;
   --foreground: #ededed;
+  --accent-color: #f3f3f3;
+  --accent-color-strong: #e5e5e5;
 }
 
 a {

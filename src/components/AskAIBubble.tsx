@@ -98,14 +98,14 @@ export default function AskAIBubble({ postTitle, postBody, postSlug }: AskAIBubb
           pointer-events: auto;
         }
         .ask-ai-popup {
-          background: var(--background, #fff);
-          color: var(#fff, #000000);
-          border: 1px solid var(--accent-color-strong, #000000);
+          background: var(--background);
+          color: var(--accent-color);
+          border: 1px solid var(--accent-color-strong);
         }
         .dark .ask-ai-popup {
-          background: var(--background, #0a0a0a);
-          color: var(--foreground, #ededed);
-          border: 1px solid var(--accent-color-strong, #ededed);
+          background: var(--background);
+          color: var(--accent-color);
+          border: 1px solid var(--accent-color-strong);
         }
         @media (max-width: 768px) {
           .ask-ai-bubble {
@@ -161,9 +161,9 @@ export default function AskAIBubble({ postTitle, postBody, postSlug }: AskAIBubb
           width: 56,
           height: 56,
           borderRadius: '50%',
-          background: 'var(--accent-color, #111111)',
-          color: '#fff',
-          border: '2px solid var(--accent-color-strong, #000000)',
+          background: 'var(--accent-color)',
+          color: 'var(--background)',
+          border: '2px solid var(--accent-color-strong)',
           boxShadow: '0 2px 8px rgba(0,0,0,0.10)',
           display: 'flex',
           alignItems: 'center',

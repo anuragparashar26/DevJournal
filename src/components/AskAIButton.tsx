@@ -63,10 +63,10 @@ export default function AskAIButton({ postTitle, postBody, postSlug }: AskAIButt
           disabled={isLoading}
           style={{
             padding: '0.75rem 1.5rem',
-            background: 'var(--accent-color, #111111)',
-            color: '#fff',
+            background: 'var(--accent-color)',
+            color: 'var(--background)',
             borderRadius: '0.5rem',
-            border: '2px solid var(--accent-color-strong, #000000)',
+            border: '2px solid var(--accent-color-strong)',
             fontWeight: 500,
             boxShadow: '0 2px 8px rgba(0,0,0,0.10)',
             opacity: isLoading ? 0.7 : 1,
