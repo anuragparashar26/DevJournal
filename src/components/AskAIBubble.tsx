@@ -48,7 +48,7 @@ export default function AskAIBubble({ postTitle, postBody, postSlug }: AskAIBubb
     setIsLoading(true);
     
     try {
-      const response = await fetch('https://indexmind.onrender.com/upload-article', {
+      const response = await fetch('https://mfapi.anuragparashar.tech/upload-article', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -15,7 +15,7 @@ export default function AskAIButton({ postTitle, postBody, postSlug }: AskAIButt
     setIsLoading(true);
     
     try {
-      const response = await fetch('https://indexmind.onrender.com/upload-article', {
+      const response = await fetch('https://mfapi.anuragparashar.tech/upload-article', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
