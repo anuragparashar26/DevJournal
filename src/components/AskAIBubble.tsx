@@ -48,7 +48,7 @@ export default function AskAIBubble({ postTitle, postBody, postSlug }: AskAIBubb
     setIsLoading(true);
     
     try {
-      const response = await fetch('https://mfapi.anuragparashar.tech/upload-article', {
+      const response = await fetch('https://indexmind.onrender.com/upload-article', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ export default function AskAIBubble({ postTitle, postBody, postSlug }: AskAIBubb
       });
       
       if (response.ok) {
-        const knowledgeBaseUrl = `https://mindfetch.anuragparashar.tech/workspace?article=${encodeURIComponent(postSlug)}&title=${encodeURIComponent(postTitle)}`;
+        const knowledgeBaseUrl = `https://indexmind.onrender.com/workspace?article=${encodeURIComponent(postSlug)}&title=${encodeURIComponent(postTitle)}`;
         window.open(knowledgeBaseUrl, '_blank', 'noopener,noreferrer');
         setIsDismissed(true);
       } else {
